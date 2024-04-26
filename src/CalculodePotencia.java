@@ -26,7 +26,7 @@ public class CalculodePotencia {
                 break;
             }
 
-            double resultado = 0;
+            double resultado;
 
             switch (opcion) {
                 case 1:
@@ -124,7 +124,7 @@ public class CalculodePotencia {
         if (opcionOperacion == 1) {
             return Triangulo.calcularArea(base, altura);
         } else {
-            return Triangulo.calcularPerimetro(base, altura);
+            return Triangulo.calcularPerimetro();
         }
     }
 
@@ -197,7 +197,7 @@ class Triangulo {
         return (base * altura) / 2;
     }
 
-    public static double calcularPerimetro(double base, double altura) {
+    public static double calcularPerimetro() {
         // No se puede calcular el perímetro con solo la base y la altura
         return -1;
     }
