@@ -52,4 +52,124 @@ public class CalculodePotencia {
                     continue;
             }
 
+            resultados.add(resultado);
+            System.out.println("Resultado: " + resultado);
+        }
+
+        scanner.close();
+
+        // Mostrar los resultados almacenados
+        System.out.println("\nResultados almacenados:");
+        for (int i = 0; i < resultados.size(); i++) {
+            System.out.println("Operación " + (i + 1) + ": " + resultados.get(i));
+        }
+    }
+
+    private static int obtenerEntero(Scanner scanner) {
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Introduce un número entero válido.");
+                scanner.next(); // Consumir la entrada no válida
+            }
+        }
+    }
+
+    private static double obtenerDoble(Scanner scanner, String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            try {
+                return scanner.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Introduce un número decimal válido.");
+                scanner.next(); // Consumir la entrada no válida
+            }
+        }
+    }
+
+    private static double operacionCirculo(Scanner scanner) {
+        double radio = obtenerDoble(scanner, "Ingrese el radio del círculo: ");
+        System.out.println("Seleccione la operación:");
+        System.out.println("1. Calcular área");
+        System.out.println("2. Calcular perímetro");
+        int opcionOperacion = obtenerEntero(scanner);
+        if (opcionOperacion == 1) {
+            return Circulo.calcularArea(radio);
+        } else {
+            return Circulo.calcularPerimetro(radio);
+        }
+    }
+
+    private static double operacionCuadrado(Scanner scanner) {
+        double lado = obtenerDoble(scanner, "Ingrese el lado del cuadrado: ");
+        System.out.println("Seleccione la operación:");
+        System.out.println("1. Calcular área");
+        System.out.println("2. Calcular perímetro");
+        int opcionOperacion = obtenerEntero(scanner);
+        if (opcionOperacion == 1) {
+            return Cuadrado.calcularArea(lado);
+        } else {
+            return Cuadrado.calcularPerimetro(lado);
+        }
+    }
+
+    private static double operacionTriangulo(Scanner scanner) {
+        double base = obtenerDoble(scanner, "Ingrese la base del triángulo: ");
+        double altura = obtenerDoble(scanner, "Ingrese la altura del triángulo: ");
+        System.out.println("Seleccione la operación:");
+        System.out.println("1. Calcular área");
+        System.out.println("2. Calcular perímetro");
+        int opcionOperacion = obtenerEntero(scanner);
+        if (opcionOperacion == 1) {
+            return Triangulo.calcularArea(base, altura);
+        } else {
+            return Triangulo.calcularPerimetro(base, altura);
+        }
+    }
+
+    private static double operacionRectangulo(Scanner scanner) {
+        double base = obtenerDoble(scanner, "Ingrese la base del rectángulo: ");
+        double altura = obtenerDoble(scanner, "Ingrese la altura del rectángulo: ");
+        System.out.println("Seleccione la operación:");
+        System.out.println("1. Calcular área");
+        System.out.println("2. Calcular perímetro");
+        int opcionOperacion = obtenerEntero(scanner);
+        if (opcionOperacion == 1) {
+            return Rectangulo.calcularArea(base, altura);
+        } else {
+            return Rectangulo.calcularPerimetro(base, altura);
+        }
+    }
+
+    private static double operacionPentagono(Scanner scanner) {
+        double lado = obtenerDoble(scanner, "Ingrese el lado del pentágono: ");
+        System.out.println("Seleccione la operación:");
+        System.out.println("1. Calcular área");
+        System.out.println("2. Calcular perímetro");
+        int opcionOperacion = obtenerEntero(scanner);
+        if (opcionOperacion == 1) {
+            return Pentagono.calcularArea(lado);
+        } else {
+            return Pentagono.calcularPerimetro(lado);
+        }
+    }
+
+    private static double operacionPotencia(Scanner scanner) {
+        double base = obtenerDoble(scanner, "Ingrese la base: ");
+        double exponente = obtenerDoble(scanner, "Ingrese el exponente: ");
+        return potencia(base, (int) exponente);
+    }
+
+    private static double potencia(double base, int exponente) {
+        if (exponente == 0) {
+            return 1;
+        }
+        if (exponente > 0) {
+            return base * potencia(base, exponente - 1);
+        }
+        return 1 / (base * potencia(base, -exponente - 1));
+    }
+}
+
 
