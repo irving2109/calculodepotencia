@@ -172,4 +172,53 @@ public class CalculodePotencia {
     }
 }
 
+class Circulo {
+    public static double calcularArea(double radio) {
+        return Math.PI * radio * radio;
+    }
 
+    public static double calcularPerimetro(double radio) {
+        return 2 * Math.PI * radio;
+    }
+}
+
+class Cuadrado {
+    public static double calcularArea(double lado) {
+        return lado * lado;
+    }
+
+    public static double calcularPerimetro(double lado) {
+        return 4 * lado;
+    }
+}
+
+class Triangulo {
+    public static double calcularArea(double base, double altura) {
+        return (base * altura) / 2;
+    }
+
+    public static double calcularPerimetro(double base, double altura) {
+        // No se puede calcular el perímetro con solo la base y la altura
+        return -1;
+    }
+}
+
+class Rectangulo {
+    public static double calcularArea(double base, double altura) {
+        return base * altura;
+    }
+
+    public static double calcularPerimetro(double base, double altura) {
+        return 2 * (base + altura);
+    }
+}
+
+class Pentagono {
+    public static double calcularArea(double lado) {
+        return (5.0 / 4.0) * Math.pow(lado, 2) / Math.tan(Math.PI / 5);
+    }
+
+    public static double calcularPerimetro(double lado) {
+        return 5 * lado;
+    }
+}
